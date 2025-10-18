@@ -4,8 +4,8 @@ USE ieee.numeric_std.all;
 
 entity BCD_to_SSEG is
 	port (
-		Neg_flag : IN std_logic;
-		X  		: IN std_logic_vector(7 downto 0);
+		Neg_flag : IN  std_logic;
+		X  		: IN  std_logic_vector(7 downto 0);
 		D1   		: OUT std_logic_vector(6 downto 0);
 		D2   		: OUT std_logic_vector(6 downto 0);
 		D3   		: OUT std_logic_vector(6 downto 0);

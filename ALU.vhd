@@ -22,7 +22,7 @@ architecture Behaviour of ALU is
 	process ( clk, res )
 		begin
 
-		if res = '1' then
+		if res = '0' then
 			Result <= (others => '0');
 
 		elsif rising_edge(clk) then
