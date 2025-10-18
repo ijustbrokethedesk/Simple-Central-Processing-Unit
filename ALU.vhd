@@ -8,6 +8,7 @@ entity ALU is
 		Opcode     : IN  std_logic_vector(3 downto 0);  -- 4-bit Opcode from Decoder
 		RegA, RegB : IN  std_logic_vector(7 downto 0);	-- 8-bit inputs A & B
 		Output     : OUT std_logic_vector(7 downto 0);  -- 8-bit Output
+		NEGT		  : OUT std_logic;							-- Negative Flag
 		OVFL		  : OUT std_logic							   -- Overflow Flag
 	);
 end ALU ;
@@ -58,9 +59,11 @@ architecture Behaviour of ALU is
 		if opcode = "0010" then
 		-- If MSB of A and B are different, and MSB of Result is different from A
 			OVFL <= (RegA(7) XOR RegB(7)) AND (Result(7) XOR RegA(7));
+			NEGT <= Result(7);
 		
 		else	
 			OVFL <= Result(8);
+			NEGT <= '0';
 		
 		end if;
 		
